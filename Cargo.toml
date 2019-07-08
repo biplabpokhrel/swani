@@ -1,0 +1,12 @@
+[package]
+name = "swani"
+version = "0.1.0"
+authors = ["Biplab Pokhrel <biplav.nep@gmail.com>"]
+
+
+[dependencies]
+actix-web = "1.0.3"
+env_logger = "0.6"
+log = "0.4.6"
+serde = "1.0.94"
+futures = "0.1.28"
