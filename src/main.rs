@@ -8,7 +8,9 @@ use actix_web::{
     middleware
 };
 
-use swani::handlers;
+mod handlers;
+mod controllers;
+mod models;
 
 #[macro_use]
 extern crate log;
@@ -27,7 +29,7 @@ fn main() {
     info!("Server started!!!");
     HttpServer::new(|| {
         App::new()
-            .configure(handlers::account)
+            .configure(handlers::account::resources)
             .route("/", web::get().to(greet))
             .route("/{name}", web::get().to(greet))
             .wrap(middleware::Logger::default())
