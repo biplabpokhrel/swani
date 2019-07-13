@@ -1,12 +1,8 @@
-// use serde::{Deserialize, Serialize};
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 
-// #[macro_use]
-// extern crate serde;
-
-#[derive(serde::Deserialize, serde::Serialize)]
 pub struct Account {
-    id: Option<i64>,
-    username: Option<i64>,
-    password: Option<String>,
-    user_type: Option<String>,
+    pub id: Option<i64>,
+    pub username: Option<String>,
+    pub password: Option<String>,
+    pub user_type: Option<String>,
 }

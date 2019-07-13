@@ -8,15 +8,15 @@ use actix_web::{
     middleware
 };
 
-mod handlers;
-mod controllers;
-mod models;
-
-#[macro_use]
 extern crate log;
 extern crate actix_web;
 extern crate futures;
 extern crate serde;
+//extern crate serde-derive;
+
+mod handlers;
+mod controllers;
+mod models;
 
 fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
@@ -26,7 +26,8 @@ fn greet(req: HttpRequest) -> impl Responder {
 
 
 fn main() {
-    info!("Server started!!!");
+    std::env::set_var("RUST_LOG", "actix_server=info,actix_web=info,swani::controllers=info");
+    env_logger::init();
     HttpServer::new(|| {
         App::new()
             .configure(handlers::account::resources)

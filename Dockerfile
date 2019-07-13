@@ -12,4 +12,5 @@ COPY . .
 
 EXPOSE 8000
 
+
 CMD [ "cargo", "watch", "-x", "run"]
